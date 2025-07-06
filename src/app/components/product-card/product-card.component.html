@@ -25,7 +25,7 @@
     <p class="product-description">{{ product.description }}</p>
     <div class="product-meta">
       <span class="product-category">{{ product.category | titlecase }}</span>
-      <span class="product-price">${{ product.price }}</span>
+      <span class="product-price">{{ product.price  | currency: '₦':'symbol':'1.0-0' }}</span>
     </div>
   </div>
 </div>

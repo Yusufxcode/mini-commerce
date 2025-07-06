@@ -32,7 +32,7 @@
       </div>
 
       <div class="product-price-section">
-        <span class="product-price">${{ product.price }}</span>
+        <span class="product-price">{{ product.price | currency: '₦':'symbol':'1.0-0'}}</span>
       </div>
 
       <div class="product-description-section">
