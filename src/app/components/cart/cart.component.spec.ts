@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CartComponent } from './cart.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('CartComponent', () => {
   let component: CartComponent;
@@ -8,7 +10,18 @@ describe('CartComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CartComponent]
+      imports: [CartComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: { params: {}, data: {} },
+            paramMap: of({}),
+            queryParams: of({}),
+            url: of([]),
+          },
+        },
+      ],
     })
     .compileComponents();
     

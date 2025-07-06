@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductCardComponent } from './product-card.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('ProductCardComponent', () => {
   let component: ProductCardComponent;
@@ -8,7 +11,18 @@ describe('ProductCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProductCardComponent]
+      imports: [ProductCardComponent, ToastrModule.forRoot()],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: { params: {}, data: {} },
+            paramMap: of({}),
+            queryParams: of({}),
+            url: of([]),
+          },
+        },
+      ],
     })
     .compileComponents();
     
