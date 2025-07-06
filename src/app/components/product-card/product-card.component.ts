@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
-import { NgIf, TitleCasePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [NgIf, TitleCasePipe, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })

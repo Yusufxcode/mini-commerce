@@ -3,13 +3,13 @@ import { Observable, BehaviorSubject, combineLatest, startWith, map } from 'rxjs
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
-import { AsyncPipe, NgFor, NgIf, TitleCasePipe } from '@angular/common';
+import { AsyncPipe, CommonModule, NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { ProductCardComponent } from "../product-card/product-card.component";
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [NgIf, NgFor, AsyncPipe, ProductCardComponent, TitleCasePipe, FormsModule],
+  imports: [CommonModule, ProductCardComponent, FormsModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })

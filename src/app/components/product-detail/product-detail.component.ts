@@ -4,12 +4,12 @@ import { Observable, switchMap, of, catchError } from 'rxjs';
 import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
-import { NgIf, NgFor, AsyncPipe, TitleCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-    imports: [NgIf, AsyncPipe, TitleCasePipe],
+    imports: [CommonModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
