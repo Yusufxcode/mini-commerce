@@ -1,0 +1,20 @@
+<div class="product-list-container">
+
+  <div *ngIf="loading$ | async" class="loading-spinner">
+    <div class="spinner"></div>
+    <p>Loading products...</p>
+  </div>
+
+  <div *ngIf="error$ | async as error" class="error-message">
+    <p>{{ error }}</p>
+    <button (click)="loadProducts()" class="retry-btn">Retry</button>
+  </div>
+
+   <app-product-card 
+      *ngFor="let product of products; trackBy: trackByProductId"
+      [product]="product"
+      class="product-card-wrapper"
+    ></app-product-card>
+    
+
+</div>

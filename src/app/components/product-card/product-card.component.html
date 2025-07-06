@@ -1,0 +1,31 @@
+<div class="product-card" [routerLink]="['/products', product.id]">
+  <div class="product-image-container">
+    <img 
+      [src]="product.image" 
+      [alt]="product.name"
+      class="product-image"
+      (error)="onImageError($event)"
+      loading="lazy"
+    />
+    <div class="product-overlay">
+      <button 
+        class="add-to-cart-btn"
+        (click)="addToCart($event)"
+        [class.adding]="addingToCart"
+        [disabled]="addingToCart"
+      >
+        <span *ngIf="!addingToCart">Add to Cart</span>
+        <span *ngIf="addingToCart">Added! ✓</span>
+      </button>
+    </div>
+  </div>
+  
+  <div class="product-info">
+    <h3 class="product-name">{{ product.name }}</h3>
+    <p class="product-description">{{ product.description }}</p>
+    <div class="product-meta">
+      <span class="product-category">{{ product.category | titlecase }}</span>
+      <span class="product-price">${{ product.price }}</span>
+    </div>
+  </div>
+</div>
