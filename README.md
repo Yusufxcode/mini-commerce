@@ -1,27 +1,47 @@
-# MiniShop
+# Mini Commerce - E-commerce Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+## Overview
 
-## Development server
+Mini Commerce is a modern, responsive e-commerce application built with Angular 19. It provides a clean, user-friendly interface for browsing products, managing shopping carts, and viewing detailed product information. The application uses a standalone component architecture and follows modern Angular best practices.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Design approach
+- Products are loaded from a JSON file (`/assets/data/products.json`)
+- Loading screen for better user experience
+- Data is cached in localStorage for performance
+- ProductService provides observables for reactive data binding
+- Components subscribe to product streams for real-time updates
+- All components survives reload
+- Lint and unit testing intact
+- Theme color for mobile browsers
 
-## Code scaffolding
+## Tools & techniques
+- **Angular 19**: Core framework with standalone components
+- **TypeScript 5.8**: Strong typing and modern JavaScript features
+- **RxJS 7.8**: Reactive programming for data streams and state management
+- **ngx-toastr**: UI feedback components/toasts.
+- **Angular CLI**: Build tooling and development server
+- **ESLint** Linting test passed successfully for the project
+- **karma-jasmine** Unit test passed successfully
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- ## SEO strategy
+- SEO-friendly URLs with product IDs
+- Meta tags for better SEO
+- Meta tags for easy social media sharing
+- Preconnect to external resources
 
-## Build
+- ## Error-handling technique
+- Global error interceptor
+- Logging of errors
+- Route error return to default
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- ## tsconfig & ESLint configs
+- **ESLint** Linting test passed
+- Strict typescript - no anys
+- Effective clean code and commits
+- Modern Angular best practices
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
