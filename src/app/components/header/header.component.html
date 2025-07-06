@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="header-content">
+    <div class="logo">
+      <a routerLink="/products">
+        <h1>Mini Commerce</h1>
+      </a>
+    </div>
+    <nav class="nav">
+      <a routerLink="/products" routerLinkActive="active">Products</a>
+      <a routerLink="/cart" routerLinkActive="active" class="cart-link">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" *ngIf="cartItemCount$ | async as count">{{ count }}</span>
+      </a>
+    </nav>
+  </div>
+</header>
