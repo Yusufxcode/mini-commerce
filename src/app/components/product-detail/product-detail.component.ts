@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap, of, catchError } from 'rxjs';
 import { Product } from '../../models/product.model';
@@ -14,19 +14,19 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit {
+  private  cartService = inject(CartService);
+   private route = inject(ActivatedRoute);
+    private router = inject(Router);
+    private productService = inject(ProductService);
+    private toast = inject(ToastrService); 
+
   product$: Observable<Product | null>;
   loading = true;
   error: string | null = null;
   addingToCart = false;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private productService: ProductService,
-    private cartService: CartService,
-    private toast: ToastrService
-  ) {
+  constructor() {
     this.product$ = this.route.paramMap.pipe(
       switchMap(params => {
         const id = params.get('id');
@@ -38,8 +38,6 @@ export class ProductDetailComponent {
       }),
       catchError(error => {
         console.error('Error loading product:', error);
-        this.error = 'Failed to load product details.';
-        this.loading = false;
         return of(null);
       })
     );

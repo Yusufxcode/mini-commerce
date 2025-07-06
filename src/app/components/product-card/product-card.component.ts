@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { RouterModule } from '@angular/router';
@@ -15,10 +15,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
+  private cartService = inject(CartService);
+  private toast = inject(ToastrService);
   @Input() product!: Product;
   addingToCart = false;
-
-  constructor(private cartService: CartService, private toast: ToastrService) {}
 
   addToCart(event: Event): void {
     event.stopPropagation();

@@ -25,9 +25,19 @@ describe('ProductCardComponent', () => {
       ],
     })
     .compileComponents();
-    
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(ProductCardComponent);
     component = fixture.componentInstance;
+    component.product = {
+      id: 1,
+      name: 'Test Product',
+      description: 'Test Description',
+      image: 'test.jpg',
+      category: 'test',
+      price: 1000
+    };
     fixture.detectChanges();
   });
 

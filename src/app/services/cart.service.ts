@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product } from '../models/product.model';
@@ -11,8 +11,9 @@ import { StorageService } from './storage.service';
 export class CartService {
   private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
   private cartItems$ = this.cartItemsSubject.asObservable();
+  private storageService = inject(StorageService);
 
-  constructor(private storageService: StorageService) {
+  constructor() {
     // Load cart items from localStorage on initialization
     const savedCart = this.storageService.getCartItems();
     if (savedCart) {

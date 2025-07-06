@@ -9,8 +9,6 @@ export class StorageService {
   private readonly PRODUCTS_KEY = 'mini-commerce-products';
   private readonly CART_KEY = 'mini-commerce-cart';
 
-  constructor() {}
-
   // Product storage methods
   setProducts(products: Product[]): void {
     try {
@@ -83,6 +81,7 @@ export class StorageService {
       localStorage.removeItem(test);
       return true;
     } catch (error) {
+      console.warn('LocalStorage is not available:', error);
       return false;
     }
   }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
@@ -12,9 +12,10 @@ export class ProductService {
   private productsSubject = new BehaviorSubject<Product[]>([]);
   private products$ = this.productsSubject.asObservable();
 
+  private http = inject(HttpClient);
+  private storageService =inject(StorageService); 
+
   constructor(
-    private http: HttpClient,
-    private storageService: StorageService
   ) {
     this.loadProducts();
   }

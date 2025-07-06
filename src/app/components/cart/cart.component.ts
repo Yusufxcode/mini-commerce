@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../models/cart-item.model';
@@ -13,17 +13,17 @@ import { RouterModule } from '@angular/router';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
+  private  cartService = inject(CartService);
+
   cartItems$: Observable<CartItem[]>;
   total$: Observable<number>;
   itemCount$: Observable<number>;
 
-  constructor(private cartService: CartService) {
+  constructor() {
     this.cartItems$ = this.cartService.getCartItems();
     this.total$ = this.cartService.getCartTotal();
     this.itemCount$ = this.cartService.getCartItemCount();
   }
-
-  ngOnInit(): void {}
 
   updateQuantity(productId: number, quantity: number): void {
     if (quantity <= 0) {

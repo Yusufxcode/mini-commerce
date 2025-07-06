@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Observable, BehaviorSubject, combineLatest, startWith, map } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../models/product.model';
@@ -13,7 +13,8 @@ import { ProductCardComponent } from "../product-card/product-card.component";
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
+  private productService = inject(ProductService); 
   products$: Observable<Product[]>;
   filteredProducts$: Observable<Product[]>;
   searchTerm$ = new BehaviorSubject<string>('');
@@ -25,7 +26,7 @@ export class ProductListComponent {
   searchTerm = '';
   selectedCategory = 'all';
 
-  constructor(private productService: ProductService) {
+  constructor() {
     this.products$ = this.productService.getProducts();
     
     // Combine products with search and category filters

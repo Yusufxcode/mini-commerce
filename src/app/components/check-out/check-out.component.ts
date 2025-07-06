@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { CartItem } from '../../models/cart-item.model';
@@ -14,6 +14,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './check-out.component.css'
 })
 export class CheckOutComponent {
+  private  cartService = inject(CartService);
+   private router = inject(Router); 
+    private toast = inject(ToastrService); 
+
   cartItems$: Observable<CartItem[]>;
   subtotal$: Observable<number>;
   deliveryFee = 5500; // Standard delivery fee
@@ -24,11 +28,7 @@ export class CheckOutComponent {
   orderComplete = false;
   orderId = '';
 
-  constructor(
-    private cartService: CartService,
-    private router: Router,
-    private toast: ToastrService
-  ) {
+  constructor() {
     this.cartItems$ = this.cartService.getCartItems();
     this.subtotal$ = this.cartService.getCartTotal();
     
@@ -43,8 +43,6 @@ export class CheckOutComponent {
       })
     );
   }
-
-  ngOnInit(): void {}
 
   async placeOrder(): Promise<void> {
     this.isProcessing = true;
