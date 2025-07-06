@@ -5,6 +5,7 @@ import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-detail',
@@ -23,7 +24,8 @@ export class ProductDetailComponent {
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toast: ToastrService
   ) {
     this.product$ = this.route.paramMap.pipe(
       switchMap(params => {
@@ -51,7 +53,7 @@ export class ProductDetailComponent {
           this.error = 'Product not found.';
         }
       },
-      error: (error) => {
+      error: () => {
         this.loading = false;
         this.error = 'Failed to load product details.';
       }
@@ -61,6 +63,8 @@ export class ProductDetailComponent {
   addToCart(product: Product): void {
     this.addingToCart = true;
     this.cartService.addToCart(product);
+
+     this.toast.success(`1 ${product.name} has been added to cart`, 'Success');
     
     setTimeout(() => {
       this.addingToCart = false;
@@ -71,8 +75,9 @@ export class ProductDetailComponent {
     this.router.navigate(['/products']);
   }
 
-  onImageError(event: any): void {
-    event.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0yMDAgMjAwTDIwMCAxNjBMMjQwIDIwMEwyMDAgMjQwTDE2MCAyMDBMMjAwIDE2MFoiIGZpbGw9IiNEREREREQiLz4KPC9zdmc+';
+  onImageError(event: Event): void {
+    const target = event.target as HTMLImageElement;
+    target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik0yMDAgMjAwTDIwMCAxNjBMMjQwIDIwMEwyMDAgMjQwTDE2MCAyMDBMMjAwIDE2MFoiIGZpbGw9IiNEREREREQiLz4KPC9zdmc+';
   }
 
 }

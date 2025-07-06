@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { CartItem } from '../../models/cart-item.model';
 import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-check-out',
@@ -25,7 +26,8 @@ export class CheckOutComponent {
 
   constructor(
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    private toast: ToastrService
   ) {
     this.cartItems$ = this.cartService.getCartItems();
     this.subtotal$ = this.cartService.getCartTotal();
@@ -52,6 +54,8 @@ export class CheckOutComponent {
     
     // Generate random order ID
     this.orderId = this.generateOrderId();
+
+    this.toast.success(`Order ${this.orderId} placed successfully!`, 'Success');
     
     // Clear cart
     this.cartService.clearCart();

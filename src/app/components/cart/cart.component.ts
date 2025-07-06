@@ -41,8 +41,9 @@ export class CartComponent {
     this.cartService.clearCart();
   }
 
-  onImageError(event: any): void {
-    event.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik01MCA1MEw1MCA0MEw2MCA1MEw1MCA2MEw0MCA1MEw1MCA0MFoiIGZpbGw9IiNEREREREQiLz4KPC9zdmc+';
+  onImageError(event: Event): void {
+    const target = event.target as HTMLImageElement;
+    target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxwYXRoIGQ9Ik01MCA1MEw1MCA0MEw2MCA1MEw1MCA2MEw0MCA1MEw1MCA0MFoiIGZpbGw9IiNEREREREQiLz4KPC9zdmc+';
   }
 
   trackByCartItem(index: number, item: CartItem): number {

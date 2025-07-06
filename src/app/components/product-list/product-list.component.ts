@@ -3,7 +3,7 @@ import { Observable, BehaviorSubject, combineLatest, startWith, map } from 'rxjs
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
-import { AsyncPipe, CommonModule, NgFor, NgIf, TitleCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from "../product-card/product-card.component";
 
 @Component({
@@ -52,7 +52,7 @@ export class ProductListComponent {
   loadProducts(): void {
     this.loading$.next(true);
     this.productService.getProducts().subscribe({
-      next: (products) => {
+      next: () => {
         this.loading$.next(false);
         this.error$.next(null);
       },
