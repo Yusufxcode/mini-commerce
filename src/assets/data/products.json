@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Bluetooth Headphones",
+    "description": "Premium quality wireless headphones with active noise cancellation and 30-hour battery life. Perfect for music lovers and professionals.",
+    "price": 199.99,
+    "category": "electronics",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.5,
+    "tags": ["wireless", "bluetooth", "headphones", "audio"]
+  },
+  {
+    "id": 2,
+    "name": "Smart Fitness Watch",
+    "description": "Advanced fitness tracking watch with heart rate monitoring, GPS, and smartphone integration. Track your health and stay connected.",
+    "price": 299.99,
+    "category": "electronics",
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.7,
+    "tags": ["smartwatch", "fitness", "health", "wearable"]
+  },
+  {
+    "id": 3,
+    "name": "Organic Cotton T-Shirt",
+    "description": "Comfortable and sustainable organic cotton t-shirt. Soft, breathable, and perfect for everyday wear. Available in multiple colors.",
+    "price": 29.99,
+    "category": "clothing",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.3,
+    "tags": ["organic", "cotton", "t-shirt", "sustainable"]
+  },
+  {
+    "id": 4,
+    "name": "JavaScript: The Complete Guide",
+    "description": "Comprehensive guide to modern JavaScript development. From basics to advanced concepts, including ES6+, async programming, and frameworks.",
+    "price": 49.99,
+    "category": "books",
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.8,
+    "tags": ["javascript", "programming", "web development", "education"]
+  },
+  {
+    "id": 5,
+    "name": "Minimalist Desk Lamp",
+    "description": "Modern LED desk lamp with adjustable brightness and color temperature. Energy-efficient and perfect for home office or study space.",
+    "price": 79.99,
+    "category": "home",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.4,
+    "tags": ["desk lamp", "LED", "minimalist", "home office"]
+  },
+  {
+    "id": 6,
+    "name": "Premium Yoga Mat",
+    "description": "High-quality non-slip yoga mat made from eco-friendly materials. Perfect for yoga, pilates, and fitness exercises. Lightweight and portable.",
+    "price": 59.99,
+    "category": "sports",
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.6,
+    "tags": ["yoga", "fitness", "mat", "exercise"]
+  },
+  {
+    "id": 7,
+    "name": "Wireless Charging Pad",
+    "description": "Fast wireless charging pad compatible with all Qi-enabled devices. Sleek design with LED indicator and overheating protection.",
+    "price": 39.99,
+    "category": "electronics",
+    "image": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.2,
+    "tags": ["wireless charging", "Qi", "phone accessories", "technology"]
+  },
+  {
+    "id": 8,
+    "name": "Denim Jacket",
+    "description": "Classic denim jacket with vintage wash and modern fit. Versatile piece that pairs well with any outfit. Durable and stylish.",
+    "price": 89.99,
+    "category": "clothing",
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.1,
+    "tags": ["denim", "jacket", "casual wear", "fashion"]
+  },
+  {
+    "id": 9,
+    "name": "Ceramic Coffee Mug Set",
+    "description": "Beautiful set of 4 ceramic coffee mugs with ergonomic handles. Microwave and dishwasher safe. Perfect for home or office use.",
+    "price": 34.99,
+    "category": "home",
+    "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.5,
+    "tags": ["ceramic", "coffee mug", "kitchen", "home"]
+  },
+  {
+    "id": 10,
+    "name": "Resistance Band Set",
+    "description": "Complete resistance band set with 5 different resistance levels. Includes door anchor, handles, and ankle straps. Perfect for home workouts.",
+    "price": 24.99,
+    "category": "sports",
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop",
+    "inStock": true,
+    "rating": 4.3,
+    "tags": ["resistance bands", "fitness", "home workout", "strength training"]
+  }
+]
