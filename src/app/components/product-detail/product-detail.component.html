@@ -1,0 +1,56 @@
+<div class="product-detail-container">
+  <div class="back-button-container">
+    <button class="back-btn" (click)="goBack()">
+      ← Back to Products
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loading-spinner">
+    <div class="spinner"></div>
+    <p>Loading product details...</p>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+    <button (click)="goBack()" class="back-btn">Go Back</button>
+  </div>
+
+  <div *ngIf="product$ | async as product" class="product-detail">
+    <div class="product-image-section">
+      <img 
+        [src]="product.image" 
+        [alt]="product.name"
+        class="product-image"
+        (error)="onImageError($event)"
+      />
+    </div>
+
+    <div class="product-info-section">
+      <div class="product-header">
+        <h1 class="product-title">{{ product.name }}</h1>
+        <span class="product-category">{{ product.category | titlecase }}</span>
+      </div>
+
+      <div class="product-price-section">
+        <span class="product-price">${{ product.price }}</span>
+      </div>
+
+      <div class="product-description-section">
+        <h3>Description</h3>
+        <p class="product-description">{{ product.description }}</p>
+      </div>
+
+      <div class="product-actions">
+        <button 
+          class="add-to-cart-btn"
+          (click)="addToCart(product)"
+          [class.adding]="addingToCart"
+          [disabled]="addingToCart"
+        >
+          <span *ngIf="!addingToCart">Add to Cart</span>
+          <span *ngIf="addingToCart">Added to Cart! ✓</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

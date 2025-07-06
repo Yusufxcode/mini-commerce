@@ -1,0 +1,193 @@
+.product-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.back-button-container {
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    background: none;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.back-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(-2px);
+}
+
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+}
+.loading-spinner .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+.loading-spinner p {
+    color: #666;
+    font-size: 18px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    text-align: center;
+    padding: 60px;
+    background-color: #fff5f5;
+    border-radius: 15px;
+    border: 2px solid #fed7d7;
+}
+.error-message p {
+    color: #e53e3e;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-section .product-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-info-section {
+    padding: 20px 0;
+}
+
+.product-header {
+    margin-bottom: 30px;
+}
+.product-header .product-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+.product-header .product-category {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-price-section {
+    margin-bottom: 30px;
+}
+.product-price-section .product-price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #667eea;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.product-description-section {
+    margin-bottom: 40px;
+}
+.product-description-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 15px;
+}
+.product-description-section .product-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin: 0;
+}
+
+.product-actions .add-to-cart-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+.product-actions .add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+.product-actions .add-to-cart-btn.adding {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    transform: scale(1.05);
+}
+.product-actions .add-to-cart-btn:disabled {
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .product-detail-container {
+        padding: 15px;
+    }
+    .product-detail {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    .product-image-section .product-image {
+        height: 300px;
+    }
+    .product-header .product-title {
+        font-size: 2rem;
+    }
+    .product-price-section .product-price {
+        font-size: 2.5rem;
+    }
+    .product-description-section h3 {
+        font-size: 1.3rem;
+    }
+    .product-description-section .product-description {
+        font-size: 1rem;
+    }
+    .product-actions .add-to-cart-btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+    }
+}
