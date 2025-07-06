@@ -1,4 +1,27 @@
 <div class="product-list-container">
+  <div class="filters-section">
+    <div class="search-filter">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm"
+        (input)="onSearchChange(searchTerm)"
+        placeholder="Search products..."
+        class="search-input"
+      />
+    </div>
+    
+    <div class="category-filter">
+      <select 
+        [(ngModel)]="selectedCategory"
+        (change)="onCategoryChange(selectedCategory)"
+        class="category-select"
+      >
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category | titlecase }}
+        </option>
+      </select>
+    </div>
+  </div>
 
   <div *ngIf="loading$ | async" class="loading-spinner">
     <div class="spinner"></div>
@@ -10,11 +33,15 @@
     <button (click)="loadProducts()" class="retry-btn">Retry</button>
   </div>
 
-   <app-product-card 
+  <div class="products-grid" *ngIf="filteredProducts$ | async as products">
+    <div *ngIf="products.length === 0" class="no-products">
+      <p>No products found matching your criteria.</p>
+    </div>
+    
+    <app-product-card 
       *ngFor="let product of products; trackBy: trackByProductId"
       [product]="product"
       class="product-card-wrapper"
     ></app-product-card>
-    
-
+  </div>
 </div>
